@@ -3,7 +3,11 @@
 Run:  python tools/build.py   (writes the .html pages into the project root)
 Edit CONFIG below to set the confirmed company contact details.
 """
-import os, html, math, re
+import os, sys, html, math, re
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from editable import make_editable, write_map
+
+REG, GREG, STATE = {}, {}, {'global_done': False}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -177,11 +181,15 @@ def footer():
 <script src="assets/js/main.js" defer></script>'''
 
 def page(fname, title, desc, active, body, hero=None):
+    pid = fname[:-5]
+    reg = REG.setdefault(pid, {})
+    reg['seo-title'] = {'t': 'Search engine', 'l': 'Page title (browser tab and Google)', 'd': title, 's': 'Search engine', 'n': 0}
+    reg['seo-desc'] = {'t': 'Search engine', 'l': 'Page description (Google snippet)', 'd': desc, 's': 'Search engine', 'n': 1}
     doc = f'''<?php require __DIR__ . '/inc/settings.php'; ?>
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(title)} | {CONFIG["full"]}</title>
-<meta name="description" content="{html.escape(desc)}">
+<title><?=h(strip_tags(t("{pid}","seo-title")))?> | {CONFIG["full"]}</title>
+<meta name="description" content="<?=h(strip_tags(t("{pid}","seo-desc")))?>">
 <meta name="theme-color" content="#0A192F">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -196,6 +204,8 @@ def page(fname, title, desc, active, body, hero=None):
 {footer()}
 </body></html>'''
     doc = re.sub(r'(?<![\w/.-])(index|about|services|property-management|construction-supervision|construction-consultancy|land-verification|farm-management|supplies-tendering|projects|properties|partners|resources|contact|portal|legal)\.html', lambda m: m.group(1) + '.php', doc)
+    doc = make_editable(doc, pid, reg, GREG, STATE["global_done"])
+    STATE["global_done"] = True
     out = fname[:-5] + ".php"
     with open(os.path.join(ROOT, out), "w", encoding="utf-8") as f:
         f.write(doc)
@@ -641,3 +651,7 @@ if __name__ == "__main__":
     build_home(); build_about(); build_services(); build_services_detail()
     build_projects(); build_properties(); build_partners(); build_resources()
     build_contact(); build_portal(); build_legal()
+    cmap = dict(REG); cmap['global'] = GREG
+    os.makedirs(os.path.join(ROOT, 'inc'), exist_ok=True)
+    write_map(os.path.join(ROOT, 'inc', 'content-map.json'), cmap)
+    print('editable blocks:', {k: len(v) for k, v in cmap.items()})

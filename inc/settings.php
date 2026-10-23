@@ -63,4 +63,15 @@ function slot_image(string $slot): ?array {
     return null;
 }
 
+/** Website text: admin edit (storage/content.json) wins over the original (inc/content-map.json). */
+function t(string $page, string $id): string {
+    static $map = null, $ov = null;
+    if ($map === null) {
+        $root = dirname(__DIR__);
+        $map = json_decode((string)@file_get_contents("$root/inc/content-map.json"), true) ?: [];
+        $ov  = json_decode((string)@file_get_contents("$root/storage/content.json"), true) ?: [];
+    }
+    return $ov[$page][$id] ?? ($map[$page][$id]['d'] ?? '');
+}
+
 $S = site_settings();

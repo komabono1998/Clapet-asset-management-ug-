@@ -1,0 +1,52 @@
+{
+ "home": {
+  "credit": "Photo: Andrew Regan · CC BY-SA 3.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Uganda-Development.JPG",
+  "alt": "Kampala city skyline with construction cranes"
+ },
+ "about": {
+  "credit": "Photo: Timothy Akolamazima · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Sunset_at_Kigarama_Hills.jpg",
+  "alt": "Hills at sunset in Uganda"
+ },
+ "property": {
+  "credit": "Photo: Chapelle musa · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Apartments_in_Kampala_City,_Uganda.jpg",
+  "alt": "Apartment buildings in Kampala"
+ },
+ "supervision": {
+  "credit": "Photo: Manu4ster · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Engineers_at_the_Construction_Site_03.jpg",
+  "alt": "Workers tying steel reinforcement at a construction site in Uganda"
+ },
+ "consultancy": {
+  "credit": "Photo: Bukulu Steven · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:House_Construction_02.jpg",
+  "alt": "House under construction in Uganda"
+ },
+ "land": {
+  "credit": "Photo: NANTUMBWEJ · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Varied_Landscape_of_Rubirizi_Near_Queen_Elizabeth_National_Park,_Uganda.jpg",
+  "alt": "Rolling landscape near Queen Elizabeth National Park, Uganda"
+ },
+ "farm": {
+  "credit": "Photo: Kateregga1 · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Pineapple_and_banana_farm_in_Wobulenzi,_Uganda.jpg",
+  "alt": "Pineapple and banana farm in Wobulenzi, Uganda"
+ },
+ "supply": {
+  "credit": "Photo: BalukuBrian · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Ndekye_Primary_school_in_Rubirizi_District_in_Western_Uganda_01.jpg",
+  "alt": "Primary school in Rubirizi District, western Uganda"
+ },
+ "listing": {
+  "credit": "Photo: BalukuBrian · CC BY-SA 4.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Tea_plantations_of_Kyamuhunga_in_Bushenyi_district_in_Uganda_11.jpg",
+  "alt": "Tea plantations in Bushenyi District, Uganda"
+ },
+ "hero": {
+  "credit": "Photo: Andrew Regan · CC BY-SA 3.0 · Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:Uganda-Development.JPG",
+  "alt": "Kampala city skyline"
+ }
+}

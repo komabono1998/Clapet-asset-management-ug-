@@ -1,0 +1,2 @@
+# Internal includes: never served over HTTP
+Require all denied

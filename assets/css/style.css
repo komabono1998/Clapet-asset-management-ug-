@@ -534,3 +534,34 @@ label.f input:focus,label.f select:focus,label.f textarea:focus{outline:none;bor
 }
 @media (max-width:760px){.nav{justify-content:flex-start}}
 @media (max-width:480px){.nav a.mob-only[href*="brief"]{display:inline-block!important}}
+
+/* footer admin login button */
+.foot-bottom a.admin-btn{display:inline-flex;align-items:center;gap:7px;margin-left:6px;padding:6px 14px;border:1px solid rgba(212,175,55,.55);border-radius:999px;color:var(--clapet-gold);font-family:var(--font-primary);font-weight:700;font-size:.72rem;letter-spacing:.04em}
+.foot-bottom a.admin-btn::before{content:"";width:11px;height:11px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V8a4 4 0 018 0v3'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V8a4 4 0 018 0v3'/%3E%3C/svg%3E") center/contain no-repeat}
+.foot-bottom a.admin-btn:hover{background:var(--clapet-gold);color:var(--clapet-navy)}
+
+/* ===== final responsive fixes (must stay last) ===== */
+@media (max-width:900px){
+  .contact-grid{grid-template-columns:1fr}
+  .portal{grid-template-columns:1fr}.p-side{display:none}
+  .kpis{grid-template-columns:repeat(2,1fr)}.pgrid{grid-template-columns:1fr}
+}
+@media (max-width:640px){.svc-pick{grid-template-columns:repeat(2,1fr)}.fgrid{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .hero-grid,.split,.contact-grid,.locband,.statband{grid-template-columns:1fr}
+  .hero-card{max-width:none}
+  .svc-pick{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+}
+.portal{min-width:0}.p-main,.pbox{min-width:0}.pbox{overflow-x:auto}.p-top h3{overflow-wrap:anywhere}
+@media (max-width:560px){.p-main{padding:18px 14px}.kpis{grid-template-columns:1fr 1fr}.log{min-width:420px}}
+h1,h2,h3,h4,p,li{overflow-wrap:break-word}
+@media (max-width:480px){table.tbl{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}.statband h2,.locband h2{font-size:1.45rem}.pillbadge{max-width:100%}}
+.split>*,.hero-grid>*,.grid>*,.locband>*,.statband>*{min-width:0}
+.phone{width:min(310px,100%)}
+
+/* official logo */
+.brand-logo{display:block;height:50px;width:auto;max-width:100%}
+.site-header .brand{flex:none}
+.foot-brand .brand-logo{background:#fff;border-radius:14px;padding:10px 16px;height:68px}
+@media (max-width:560px){.brand-logo{height:40px}.foot-brand .brand-logo{height:56px}}

@@ -3,7 +3,7 @@
 Run:  python tools/build.py   (writes the .html pages into the project root)
 Edit CONFIG below to set the confirmed company contact details.
 """
-import os, sys, html, math, re
+import os, sys, json, html, math, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from editable import make_editable, write_map
 
@@ -163,7 +163,7 @@ def header(active):
     return f'''<a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><div class="wrap"><span><span class="g">◆</span> {CONFIG["motto"]}</span><span><a href="tel:{CONFIG["phone_raw"]}">{CONFIG["phone"]}</a> &nbsp;·&nbsp; <a href="mailto:{CONFIG["email"]}">{CONFIG["email"]}</a> &nbsp;·&nbsp; <a href="portal.html">🔒 Client Portal</a></span></div></div>
 <header class="site-header"><div class="wrap nav-wrap">
-<a class="brand" href="index.html" aria-label="{CONFIG["full"]} — home">{logo_mark()}<span class="brand-text">{CONFIG["name"]}<small>{CONFIG["suffix"]}</small></span></a>
+<a class="brand" href="index.html" aria-label="{CONFIG["full"]} — home"><img class="brand-logo" src="assets/img/logo.png" width="190" height="49" alt="{CONFIG["full"]}"></a>
 <nav class="nav" aria-label="Main">{"".join(items)}{mob}</nav>
 <div class="nav-cta"><a class="btn btn-gold btn-sm" href="contact.html#brief">Submit a Project Brief →</a><button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
 </div></header>'''
@@ -171,14 +171,14 @@ def header(active):
 def footer():
     svc = "".join('<li><a href="%s.html">%s</a></li>' % (s[0], SVC_SHORT[s[0]]) for s in SERVICES)
     return f'''<footer class="site-footer"><div class="wrap"><div class="foot-grid">
-<div class="foot-brand"><a class="brand" href="index.html">{logo_mark()}<span class="brand-text">{CONFIG["name"]}<small>{CONFIG["suffix"]}</small></span></a>
+<div class="foot-brand"><a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo.png" width="190" height="49" alt="{CONFIG["full"]}"></a>
 <p>Property management, construction supervision, land verification, farm management, and general supplies.</p><div class="foot-motto">◆ {CONFIG["motto"]}</div></div>
 <div><h4>Our Services</h4><ul>{svc}</ul></div>
 <div><h4>Quick Links</h4><ul><li><a href="about.html">About Us</a></li><li><a href="projects.html">Projects</a></li><li><a href="properties.html">Land &amp; Properties</a></li><li><a href="partners.html">Partners</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="portal.html">Client Portal</a></li><li><a href="legal.html">Privacy Policy</a></li></ul></div>
 <div><h4>Contact</h4><ul><li>{CONFIG["address"]}</li><li><a href="tel:{CONFIG["phone_raw"]}">{CONFIG["phone"]}</a></li><li><a href="mailto:{CONFIG["email"]}">{CONFIG["email"]}</a></li><li>{CONFIG["hours"]}</li><li><a href="{WA_URL}" target="_blank" rel="noopener">WhatsApp us</a></li></ul></div>
-</div><div class="foot-bottom"><span>© 2026 {CONFIG["full"]}. All rights reserved.</span><span><a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#disclaimers">Disclaimers</a></span></div></div></footer>
+</div><div class="foot-bottom"><span>© 2026 {CONFIG["full"]}. All rights reserved.</span><span><a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#disclaimers">Disclaimers</a> · <a class="admin-btn" href="admin/index.php" rel="nofollow">Admin login</a></span></div></div></footer>
 <a class="wa-float" href="{WA_URL}" target="_blank" rel="noopener" aria-label="Chat with Clapet on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-2c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.7 13-12.8S23.200 3 16 3zm0 23.300c-2.100 0-4.100-.6-5.800-1.700l-.4-.2-3.900 1.200 1.200-3.800-.3-.4a10.300 10.300 0 01-1.700-5.600C5.100 9.900 10 5.300 16 5.300s10.900 4.600 10.900 10.500S22 26.300 16 26.300zm6-7.800c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200l-1 1.200c-.2.200-.4.200-.7.100-1.900-.9-3.100-1.700-4.300-3.800-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.6l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.100-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.700 5.800 5.100 2.200.9 3 .9 4 .8.6-.1 1.900-.8 2.200-1.600.3-.8.300-1.400.2-1.600-.1-.1-.3-.2-.6-.4z"/></svg></a>
-<script src="assets/js/main.js" defer></script>'''
+<script src="assets/js/main.js?v=<?=(int)@filemtime(__DIR__ . '/assets/js/main.js')?>" defer></script>'''
 
 def page(fname, title, desc, active, body, hero=None):
     pid = fname[:-5]
@@ -193,8 +193,9 @@ def page(fname, title, desc, active, body, hero=None):
 <meta name="theme-color" content="#0A192F">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css?v=<?=(int)@filemtime(__DIR__ . '/assets/css/style.css')?>">
+<link rel="icon" href="assets/img/logo-icon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/img/logo-icon-180.png">
 </head><body>
 {header(active)}
 <main id="main">
@@ -220,7 +221,7 @@ def sec_head(eyebrow, h2, lead="", center=False):
     return '<div class="sec-head rv%s"><span class="eyebrow">%s</span><h2>%s</h2>%s</div>' % (" center" if center else "", eyebrow, h2, ('<p class="lead">%s</p>' % lead) if lead else "")
 
 def cta_band(h="Have a property, project, land, farm, or supply requirement?", p="Let us understand your needs and help you identify the right service arrangement.", svc=""):
-    q = "#service=" + svc if svc else ""
+    q = "?service=" + svc + "#brief" if svc else ""
     return f'''<section class="cta-band"><div class="wrap rv"><span class="eyebrow">Start the conversation</span><h2>{h}</h2><p>{p}</p>
 <div class="btn-row"><a class="btn btn-gold" href="contact.html{q or "#brief"}">Submit a Project Brief →</a><a class="btn btn-outline" href="contact.html#consultation">Request a Consultation</a><a class="btn btn-outline" href="{WA_URL}" target="_blank" rel="noopener">WhatsApp Our Team</a></div></div></section>'''
 
@@ -269,7 +270,7 @@ def svc_photo_cards():
     return '<div class="grid g3">%s</div>' % "".join(out)
 
 def build_home():
-    tk = '<?php foreach (array_merge($S["ticker"], $S["ticker"]) as $t): ?><span><?=h($t)?></span><?php endforeach; ?>'
+    tk = '<?php for ($__i = 0; $__i < 12; $__i++) { foreach ($S["ticker"] as $t): ?><span><?=h($t)?></span><?php endforeach; } ?>'
     opts = "".join('<option value="%s">%s</option>' % (sl, SVC_SHORT[sl]) for sl, *_ in SERVICES)
     hero = f'''<section class="hero"><?php if ($im = slot_image("hero")): ?><div class="hero-bg"><img src="<?=h($im["file"])?>" alt="" fetchpriority="high"></div><?php endif; ?>{topo(11, 1)}<div class="wrap hero-grid"><div>
 <span class="pillbadge">◆ Zero-Fraud Asset Management · Infrastructure · Procurement Logistics</span>
@@ -347,7 +348,7 @@ def build_home():
 <div class="msg"><div class="ph">▶ SITE VIDEO · 09:12</div>Slab pour complete — Block B. Cement bags logged: 48 / 48.<time>09:14</time></div>
 <div class="msg">Material audit: steel bars Y12 received 120, counted 120 ✔<time>09:20</time></div>
 <div class="msg me">Approved. Thank you.<time>09:31 ✔✔</time></div></div></div></div></div></div></section>'''
-    body = services + intro + diligence + manifesto + stats + why + proc + approach + portal + cta_band()
+    body = services + intro + diligence + manifesto + stats + why + proc + approach + '<?=render_testimonials()?>' + portal + cta_band()
     page("index.html", "Property Management, Construction & Land Verification in Uganda",
          "CLAPET ASSET MANAGEMENT UG - SMC — The Standard of Trust. Property management, construction supervision, land verification, farm management and general supplies across Uganda.",
          "index.html", body, hero)
@@ -374,7 +375,7 @@ def build_about():
 {checks(["Managing Director's approved biography and photograph","Management team profiles, qualifications and operational responsibilities","Verified professional partnerships","Company governance and accountability arrangements"])}
 <p style="font-size:.9rem;color:#8ea1bf">Leadership profiles are published as approved by each individual.</p></div>
 <div class="promise rv" style="background:rgba(255,255,255,.04)"><h3>Company profile download</h3><p style="font-size:1.05rem;font-weight:500">A corporate profile PDF — identity, mission, values, service portfolio, management contacts, verified credentials and procurement capabilities — is available on request.</p><div class="btn-row"><a class="btn btn-gold btn-sm" href="contact.html#consultation">Request the company profile</a></div></div></div></section>
-<section><div class="wrap narrow">{sec_head("FAQs", "Common questions answered", "", True)}{faq_html(FAQS[:5])}<div style="text-align:center;margin-top:30px"><a class="link-arrow" href="resources.html#faqs">See all FAQs →</a></div></div></section>
+<section><div class="wrap narrow">{sec_head("FAQs", "Common questions answered", "", True)}<?=render_faqs(5)?><div style="text-align:center;margin-top:30px"><a class="link-arrow" href="resources.html#faqs">See all FAQs →</a></div></div></section>
 {cta_band()}'''
     page("about.html", "About Us", "About CLAPET ASSET MANAGEMENT UG - SMC: mission, vision, values, leadership and governance.", "about.html", body,
          page_hero("About Us", "About " + CONFIG["full"], "A professional, transparent and accountable partner for managing assets, supervising projects and coordinating service delivery.", "about"))
@@ -400,7 +401,7 @@ def service_page(slug, hero_h1, crumb, intro_html, kind, kind_label, main_html, 
     hero = page_hero(crumb, hero_h1, "", SLOT_OF[slug])
     hero = hero.replace("<p></p>", "")
     body = f'''<section><div class="wrap split"><div class="rv"><span class="eyebrow">{crumb}</span><h2>{process_title[0]}</h2>{intro_html}
-<div class="btn-row"><a class="btn btn-gold" href="contact.html#service={form_svc}">Request this service →</a><a class="btn btn-line" href="contact.html#consultation">Book a consultation</a></div></div>{visual(kind, kind_label, SLOT_OF[slug])}</div></section>
+<div class="btn-row"><a class="btn btn-gold" href="contact.html?service={form_svc}#brief">Request this service →</a><a class="btn btn-line" href="contact.html#consultation">Book a consultation</a></div></div>{visual(kind, kind_label, SLOT_OF[slug])}</div></section>
 {main_html}
 <section class="{"" if extra_html == "" else "alt"}"><div class="wrap">{sec_head("How it works", process_title[1], "", True)}{steps(process_steps, steps_cls)}</div></section>
 {extra_html}
@@ -507,9 +508,9 @@ def build_services_detail():
     sup_main = f'''<section class="alt"><div class="wrap">{sec_head("Capabilities", "Institutional capacity, seamless execution.", "Supply categories within the company's approved capacity.")}{feature_cards(cats, "g4")}</div></section>
 <section><div class="wrap">{sec_head("Tender &amp; procurement support", "Everything from sourcing to delivery documentation.")}
 {tabs([("Support services", "<div class='grid g2'>" + "".join("<div><h3>%s</h3><p style='margin:0'>%s</p></div>" % t for t in tend) + "</div>"),
-       ("Tenders & deadlines", "<h3>Open opportunities &amp; upcoming deadlines</h3><p>Tender opportunities and upcoming deadlines are published here as they are verified and approved internally. No bid is submitted without internal approval.</p><a class='btn btn-navy btn-sm' href='contact.html#service=general-supplies'>Submit a tender brief</a>"),
+       ("Tenders & deadlines", "<h3>Open opportunities &amp; upcoming deadlines</h3><?=render_tenders()?><br><a class='btn btn-navy btn-sm' href='contact.html?service=general-supplies#brief'>Submit a tender brief</a>"),
        ("Supplier registration", "<h3>Register as a supplier</h3><p>Provide your organisation name, contact information, supply categories, location, relevant experience, references, applicable registration details and supporting documents. Registration is subject to review and does not grant approved-vendor status.</p><a class='btn btn-navy btn-sm' href='partners.html#register'>Register interest</a>"),
-       ("Request a quotation", "<h3>Request a quotation</h3><p>Share specifications, quantities, delivery location and deadline. We source comparative quotations and advise on next steps.</p><a class='btn btn-navy btn-sm' href='contact.html#service=general-supplies'>Request a quotation</a>")])}
+       ("Request a quotation", "<h3>Request a quotation</h3><p>Share specifications, quantities, delivery location and deadline. We source comparative quotations and advise on next steps.</p><a class='btn btn-navy btn-sm' href='contact.html?service=general-supplies#brief'>Request a quotation</a>")])}
 </div></section>'''
     service_page("supplies-tendering", "Reliable Supply. Clear Documentation. Accountable Delivery.", "General Supplies & Tendering",
         "<p>Organisations require reliable suppliers, clear quotations, proper documentation, and timely delivery of goods and materials.</p><p>%s provides general supply and procurement coordination within its verified capacity, supporting businesses, institutions, NGOs, and eligible public-sector requirements.</p>" % CONFIG["full"],
@@ -522,8 +523,8 @@ def build_services_detail():
 def build_projects():
     cats = [("building","Property management assignments"),("crane","Construction and renovation"),("eye","Site supervision"),("map","Land verification and brokerage"),("leaf","Farm management"),("box","General supplies and procurement")]
     body = f'''<section><div class="wrap">{sec_head("Portfolio", "Genuine, documented examples — published with permission.", "We publish only real, approved projects: no invented case studies, unverified client names or unsupported figures. Entries appear here as assignments complete and clients consent.")}
-<form class="filters rv" data-filter-form="#results"><label>Category<select><option>All categories</option>{"".join("<option>%s</option>" % c[1] for c in cats)}</select></label><label>Status<select><option>Any</option><option>Planned</option><option>Ongoing</option><option>Completed</option><option>On Hold</option></select></label><label>Location<input placeholder="District or town"></label><label>Year<input placeholder="e.g. 2026"></label><button class="btn btn-navy btn-sm" style="align-self:end">Filter</button></form>
-<div id="results" class="empty rv"><h3>Our first portfolio entries are being prepared.</h3><p>Each entry will show the title, category, general location, status, scope, approved photographs, timeline and documented results — and is approved before publication. Confidential budgets, sensitive site coordinates and client documents are never published without authorisation.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-gold" href="contact.html#brief">Discuss your project →</a></div></div></div></section>
+<form class="filters rv" method="get" action="projects.html"><label>Category<select name="cat"><option value="">All categories</option>{"".join('<option value="%s"<?=sel("cat","%s")?>>%s</option>' % (c[1], c[1], c[1]) for c in cats)}</select></label><label>Status<select name="status"><option value="">Any</option>{"".join('<option<?=sel("status","%s")?>>%s</option>' % (x, x) for x in ["Planned", "Ongoing", "Completed", "On Hold"])}</select></label><label>Location<input name="loc" value="<?=h($_GET["loc"] ?? "")?>" placeholder="District or town"></label><label>Year<input name="year" value="<?=h($_GET["year"] ?? "")?>" placeholder="e.g. 2026"></label><button class="btn btn-navy btn-sm" style="align-self:end">Filter</button></form>
+<?=render_projects()?></div></section>
 <section class="alt"><div class="wrap">{sec_head("Project categories", "What our portfolio will cover.", "", True)}<div class="grid g3">{"".join('<div class="card rv">%s<h3>%s</h3></div>' % (icon(i), t) for i, t in cats)}</div></div></section>
 <section><div class="wrap">{sec_head("Anatomy of a project page", "Every entry is evidence-led.", "", True)}
 <table class="tbl rv">{"".join("<tr><td>%s</td><td>%s</td></tr>" % x for x in [("Project overview","Title, reference, category, and summary"),("Client context","Client requirement, with permission to disclose"),("Scope of work","Agreed services and responsibilities"),("Timeline","Start date, target completion, completion date"),("Execution","Activities performed and milestones"),("Evidence","Approved photographs, reports, and records"),("Outcomes","Verified deliverables and measurable results where available"),("Lessons","Relevant observations and improvements")])}</table></div></section>
@@ -533,11 +534,11 @@ def build_projects():
 
 def build_properties():
     body = f'''<section><div class="wrap">{sec_head("Search", "Find property opportunities with better information.")}
-<form class="filters rv" data-filter-form="#plist"><label>Location<input placeholder="District, town or area"></label><label>Property type<select><option>All</option><option>Land</option><option>Residential</option><option>Commercial</option><option>Agricultural</option></select></label><label>Land size<input placeholder="e.g. 50 x 100 ft / acres"></label><label>Price range<select><option>Any</option><option>Under UGX 50M</option><option>UGX 50M – 200M</option><option>UGX 200M – 500M</option><option>Above UGX 500M</option></select></label><label>Intended use<select><option>Any</option><option>Residential</option><option>Commercial</option><option>Farming</option></select></label><label>Verification<select><option>Any</option><option>Documents Received</option><option>Checks in Progress</option><option>Checks Completed Within Scope</option><option>Further Verification Required</option></select></label><button class="btn btn-navy btn-sm" style="align-self:end">Search</button></form>
-<div id="plist" class="empty rv"><h3>Verified listings are published after review.</h3><p>Listings remain unpublished until an authorised staff member confirms the right to market the property. Check back soon, or tell us what you're looking for and we'll search on your behalf.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-gold" href="contact.html#service=land-verification">Tell us what you need →</a></div></div></div></section>
+<form class="filters rv" method="get" action="properties.html"><label>Location<input name="loc" value="<?=h($_GET["loc"] ?? "")?>" placeholder="District, town or area"></label><label>Property type<select name="type"><option value="">All</option>{"".join('<option<?=sel("type","%s")?>>%s</option>' % (x, x) for x in ["Land", "Residential", "Commercial", "Agricultural"])}</select></label><label>Intended use<select name="use"><option value="">Any</option>{"".join('<option<?=sel("use","%s")?>>%s</option>' % (x, x) for x in ["Residential", "Commercial", "Farming"])}</select></label><label>Verification<select name="ver"><option value="">Any</option>{"".join('<option<?=sel("ver","%s")?>>%s</option>' % (x, x) for x in ["Documents Received", "Checks in Progress", "Checks Completed Within Scope", "Further Verification Required"])}</select></label><label>Availability<select name="avail"><option value="">Any</option>{"".join('<option<?=sel("avail","%s")?>>%s</option>' % (x, x) for x in ["Available", "Under offer", "Sold"])}</select></label><button class="btn btn-navy btn-sm" style="align-self:end">Search</button></form>
+<?=render_listings()?></div></section>
 <section class="alt"><div class="wrap split"><div class="rv"><span class="eyebrow">Listing standard</span><h2>What every listing shows.</h2>{checks(["Unique listing reference and general location","Land size and measurement unit; asking price if authorised","Intended or stated land use, access and utilities","Photographs and available document status","Verification status and date","Viewing request form and enquiry button"])}
 {notice("Important.", "Uploaded documents do not mean land is legally cleared or free of disputes. Official search results, physical inspections and survey reports are represented accurately.")}</div>
-<div class="listing rv" aria-label="Illustrative listing format"><div class="ph">{photo_or_scene("listing","land","Illustrative listing format")}</div><div class="body"><span class="chip gold">Checks Completed Within Scope</span><h3 style="margin-top:12px">Sample listing · CAM-L-0000</h3><dl><dt>Location</dt><dd>District, Uganda</dd><dt>Size</dt><dd>— acres</dd><dt>Use</dt><dd>Residential</dd><dt>Verified</dt><dd>Date shown here</dd></dl><a class="btn btn-navy btn-sm" href="contact.html#service=land-verification">Request a viewing</a></div></div></div></section>
+<div class="listing rv" aria-label="Illustrative listing format"><div class="ph">{photo_or_scene("listing","land","Illustrative listing format")}</div><div class="body"><span class="chip gold">Checks Completed Within Scope</span><h3 style="margin-top:12px">Sample listing · CAM-L-0000</h3><dl><dt>Location</dt><dd>District, Uganda</dd><dt>Size</dt><dd>— acres</dd><dt>Use</dt><dd>Residential</dd><dt>Verified</dt><dd>Date shown here</dd></dl><a class="btn btn-navy btn-sm" href="contact.html?service=land-verification#brief">Request a viewing</a></div></div></div></section>
 <section><div class="wrap"><div class="form-card narrow rv" style="max-width:860px;margin:auto"><span class="eyebrow">Listing submission</span><h2>List your property with us</h2><p class="lead">Owners or authorised representatives can submit a property. It remains unpublished until reviewed.</p>
 <form action="submit.php" method="post" data-ajax enctype="multipart/form-data"><input type="hidden" name="service" value="listing"><input class="hp" name="website" tabindex="-1" autocomplete="off"><div class="fgrid">
 <label class="f">Full name<input name="full_name" required maxlength="120"></label><label class="f">Email<input type="email" name="email" required></label><label class="f">Telephone<input name="phone" type="tel"></label><label class="f">Property type<select name="property_type"><option>Land</option><option>Residential</option><option>Commercial</option><option>Agricultural</option></select></label><label class="f">Location<input name="location" required></label><label class="f">Asking price (UGX)<input name="asking_price"></label>
@@ -567,7 +568,7 @@ def build_resources():
     cats = [("building","Property management guides"),("eye","Construction planning and supervision"),("map","Land verification and acquisition"),("leaf","Farm management and operations"),("box","Procurement and tendering"),("doc","Company news and announcements")]
     body = f'''<section><div class="wrap">{sec_head("Knowledge hub", "Guides to help you decide with confidence.", "Practical articles and checklists across property, construction, land, agriculture and procurement are published here as they are reviewed and approved.", True)}
 <div class="grid g3">{"".join('<div class="card rv">%s<h3>%s</h3><p>Guides and checklists coming soon.</p></div>' % (icon(i), t) for i, t in cats)}</div></div></section>
-<section class="alt" id="faqs"><div class="wrap narrow">{sec_head("FAQs", "Frequently asked questions", "", True)}{faq_html(FAQS)}</div></section>
+<section class="alt" id="faqs"><div class="wrap narrow">{sec_head("FAQs", "Frequently asked questions", "", True)}<?=render_faqs()?></div></section>
 {cta_band("Can't find your answer?", "Our team is happy to talk through your requirement.")}'''
     page("resources.html", "Resources, News & FAQs", "Property, construction, land, farm and procurement guidance plus frequently asked questions.", "resources.html", body,
          page_hero("Resources", "Resources, News &amp; FAQs", "Useful information that helps clients understand property, construction, land, agricultural, and procurement matters."))
@@ -600,7 +601,7 @@ def build_contact():
 <div class="fstep"><h3>Provide your details</h3><div class="fgrid"><label class="f">Full name<input name="full_name" required maxlength="120"></label><label class="f">Organisation (if applicable)<input name="organisation"></label><label class="f">Email<input type="email" name="email" required></label><label class="f">Telephone<input type="tel" name="phone" pattern="[0-9+()\\-\\s]{{7,40}}"></label><label class="f full">Preferred contact method<select name="contact_method"><option>Email</option><option>Telephone</option><option>WhatsApp</option></select></label></div></div>
 <div class="fstep"><h3>Describe the requirement</h3><div class="fgrid"><label class="f">Location<input name="location" required></label><label class="f">Timeline<input name="timeline" placeholder="e.g. start within 2 months"></label><label class="f full">Budget information (optional)<input name="budget_info"></label>{svc_fields}<label class="f full">Scope / description<textarea name="description" required></textarea></label></div></div>
 <div class="fstep"><h3>Attach supporting files</h3><label class="f">Plans, specifications, photographs or documents (PDF, JPG, PNG, DOCX, XLSX · max 5 MB each · up to 5 files)<input type="file" name="attachments[]" multiple accept=".pdf,.jpg,.jpeg,.png,.docx,.xlsx"></label></div>
-<div class="fstep"><h3>Review and submit</h3><div class="review"></div><label class="consent" style="margin-top:18px"><input type="checkbox" name="consent" required><span>I consent to {CONFIG["full"]} processing this information to respond to my enquiry, in line with the <a href="legal.html#privacy" target="_blank">privacy notice</a>.</span></label></div>
+<div class="fstep"><h3>Review and submit</h3><div class="review"></div><label class="consent" style="margin-top:18px"><input type="checkbox" name="consent" required><span>I consent to {CONFIG["full"]} processing this information to respond to my enquiry, in line with the <a href="legal.html#privacy" target="_blank" rel="noopener">privacy notice</a>.</span></label></div>
 <div class="form-nav"><button type="button" class="btn btn-line btn-sm" data-prev>← Back</button><button type="button" class="btn btn-navy btn-sm" data-next>Continue →</button><button type="submit" class="btn btn-gold btn-sm">Submit brief</button></div>
 <div class="form-msg" role="status"></div></form></div></div></div></section>
 <section class="alt" id="consultation"><div class="wrap split"><div class="rv"><span class="eyebrow">Executive consultation</span><h2>Schedule an Executive Consultation</h2><p class="lead">Tell us a little first so we match you with the right lead. Then choose a convenient time.</p>{checks(["Availability selection with instant confirmation","Rescheduling and cancellation by link","Optional calendar integration"])}
@@ -640,7 +641,7 @@ def build_legal():
 <div class="rv" id="terms" style="margin-top:56px"><span class="eyebrow">Terms of service</span><h2>Terms of service</h2><p>Services are requested through a project brief and become binding only when a written proposal or agreement is accepted. Fees, expenses, approval limits, cancellation and dispute handling are set out in each agreement.</p></div>
 <div class="rv" id="disclaimers" style="margin-top:56px"><span class="eyebrow">Disclaimers</span><h2>Service-specific disclaimers</h2>
 {checks(["<b>Property management:</b> responsibilities and spending are limited to the owner's written authorisations.","<b>Construction supervision:</b> site monitoring is not regulated technical certification.","<b>Land due diligence &amp; brokerage:</b> verification has a defined scope; no guarantee of ownership, authenticity or a risk-free transaction.","<b>Farm management:</b> production estimates are not guarantees of yield or profit.","<b>Tenders &amp; supply:</b> eligibility and contract delivery are subject to verified credentials and internal approval."])}</div>
-<div class="rv" id="cookies" style="margin-top:56px"><span class="eyebrow">Cookies &amp; complaints</span><h2>Cookie notice &amp; complaints procedure</h2><p>This website uses only essential storage. If you have a complaint, email <a href="mailto:{CONFIG["email"]}">{CONFIG["email"]}</a> quoting any reference number; we acknowledge complaints promptly and respond in writing.</p></div></div></section>'''
+<div class="rv" id="cookies" style="margin-top:56px"><span class="eyebrow">Cookies &amp; complaints</span><h2>Cookie notice &amp; complaints procedure</h2><p>This website sets no cookies. It records anonymous, aggregated visit statistics (pages viewed, device type, referring site and time on page) using a one-way hash, never your IP address, and it honours the Do Not Track setting. If you have a complaint, email <a href="mailto:{CONFIG["email"]}">{CONFIG["email"]}</a> quoting any reference number; we acknowledge complaints promptly and respond in writing.</p></div></div></section>'''
     page("legal.html", "Legal & Policies", "Privacy policy, terms of service, disclaimers and complaints procedure.", "legal.html", body,
          page_hero("Legal &amp; Policies", "Legal &amp; Policies", "Privacy, terms, disclaimers and complaints procedure."))
 
@@ -654,4 +655,5 @@ if __name__ == "__main__":
     cmap = dict(REG); cmap['global'] = GREG
     os.makedirs(os.path.join(ROOT, 'inc'), exist_ok=True)
     write_map(os.path.join(ROOT, 'inc', 'content-map.json'), cmap)
+    json.dump([{'question': q, 'answer': a} for q, a in FAQS], open(os.path.join(ROOT, 'inc', 'faq-defaults.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=0)
     print('editable blocks:', {k: len(v) for k, v in cmap.items()})

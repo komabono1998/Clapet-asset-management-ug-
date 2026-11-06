@@ -1151,123 +1151,53 @@
 "n": 42
 },
 "b42": {
-"t": "Question",
-"l": "Can you manage my property if I live abroad?",
-"d": "Can you manage my property if I live abroad?",
+"t": "Link / button",
+"l": "See all FAQs →",
+"d": "See all FAQs →",
 "s": "Common questions answered",
 "n": 43
 },
 "b43": {
-"t": "Paragraph",
-"l": "Yes. Services can be arranged for owners who live abroad or outside t…",
-"d": "Yes. Services can be arranged for owners who live abroad or outside the property's location, subject to an agreed management scope, access to necessary information, and the appropriate authorisations.",
+"t": "Label",
+"l": "Start the conversation",
+"d": "Start the conversation",
 "s": "Common questions answered",
 "n": 44
 },
 "b44": {
-"t": "Question",
-"l": "Can I hire you only to supervise construction?",
-"d": "Can I hire you only to supervise construction?",
+"t": "Heading",
+"l": "Have a property, project, land, farm, or supply requirement?",
+"d": "Have a property, project, land, farm, or supply requirement?",
 "s": "Common questions answered",
 "n": 45
 },
 "b45": {
 "t": "Paragraph",
-"l": "Yes. Construction supervision can be provided as a standalone service…",
-"d": "Yes. Construction supervision can be provided as a standalone service with agreed site visits, reporting frequency, responsibilities, and limitations.",
-"s": "Common questions answered",
-"n": 46
-},
-"b46": {
-"t": "Question",
-"l": "Can you help me verify land before purchase?",
-"d": "Can you help me verify land before purchase?",
-"s": "Common questions answered",
-"n": 47
-},
-"b47": {
-"t": "Paragraph",
-"l": "Clapet can coordinate relevant document reviews, official searches, s…",
-"d": "Clapet can coordinate relevant document reviews, official searches, site inspections, and specialist engagements according to the agreed scope. No verification process should be represented as guaranteeing a risk-free transaction.",
-"s": "Common questions answered",
-"n": 48
-},
-"b48": {
-"t": "Question",
-"l": "Do you undertake construction contracts?",
-"d": "Do you undertake construction contracts?",
-"s": "Common questions answered",
-"n": 49
-},
-"b49": {
-"t": "Paragraph",
-"l": "The company can consider construction assignments within its verified…",
-"d": "The company can consider construction assignments within its verified capacity, professional requirements, and contractual scope.",
-"s": "Common questions answered",
-"n": 50
-},
-"b50": {
-"t": "Question",
-"l": "Can you manage agricultural land on my behalf?",
-"d": "Can you manage agricultural land on my behalf?",
-"s": "Common questions answered",
-"n": 51
-},
-"b51": {
-"t": "Paragraph",
-"l": "Yes. Farm management services can be structured around the land, acti…",
-"d": "Yes. Farm management services can be structured around the land, activities, budget, reporting needs, and objectives of the client.",
-"s": "Common questions answered",
-"n": 52
-},
-"b52": {
-"t": "Link / button",
-"l": "See all FAQs →",
-"d": "See all FAQs →",
-"s": "Common questions answered",
-"n": 53
-},
-"b53": {
-"t": "Label",
-"l": "Start the conversation",
-"d": "Start the conversation",
-"s": "Common questions answered",
-"n": 54
-},
-"b54": {
-"t": "Heading",
-"l": "Have a property, project, land, farm, or supply requirement?",
-"d": "Have a property, project, land, farm, or supply requirement?",
-"s": "Common questions answered",
-"n": 55
-},
-"b55": {
-"t": "Paragraph",
 "l": "Let us understand your needs and help you identify the right service …",
 "d": "Let us understand your needs and help you identify the right service arrangement.",
 "s": "Have a property, project, land, farm, or supply…",
-"n": 56
+"n": 46
 },
-"b56": {
+"b46": {
 "t": "Link / button",
 "l": "Submit a Project Brief →",
 "d": "Submit a Project Brief →",
 "s": "Have a property, project, land, farm, or supply…",
-"n": 57
+"n": 47
 },
-"b57": {
+"b47": {
 "t": "Link / button",
 "l": "Request a Consultation",
 "d": "Request a Consultation",
 "s": "Have a property, project, land, farm, or supply…",
-"n": 58
+"n": 48
 },
-"b58": {
+"b48": {
 "t": "Link / button",
 "l": "WhatsApp Our Team",
 "d": "WhatsApp Our Team",
 "s": "Have a property, project, land, farm, or supply…",
-"n": 59
+"n": 49
 }
 },
 "services": {
@@ -4364,186 +4294,179 @@
 "n": 48
 },
 "b48": {
-"t": "Paragraph",
-"l": "Tender opportunities and upcoming deadlines are published here as the…",
-"d": "Tender opportunities and upcoming deadlines are published here as they are verified and approved internally. No bid is submitted without internal approval.",
-"s": "Everything from sourcing to delivery documentat…",
-"n": 49
-},
-"b49": {
 "t": "Link / button",
 "l": "Submit a tender brief",
 "d": "Submit a tender brief",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 50
+"n": 49
 },
-"b50": {
+"b49": {
 "t": "Subheading",
 "l": "Register as a supplier",
 "d": "Register as a supplier",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 51
+"n": 50
 },
-"b51": {
+"b50": {
 "t": "Paragraph",
 "l": "Provide your organisation name, contact information, supply categorie…",
 "d": "Provide your organisation name, contact information, supply categories, location, relevant experience, references, applicable registration details and supporting documents. Registration is subject to review and does not grant approved-vendor status.",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 52
+"n": 51
 },
-"b52": {
+"b51": {
 "t": "Link / button",
 "l": "Register interest",
 "d": "Register interest",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 53
+"n": 52
 },
-"b53": {
+"b52": {
 "t": "Subheading",
 "l": "Request a quotation",
 "d": "Request a quotation",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 54
+"n": 53
 },
-"b54": {
+"b53": {
 "t": "Paragraph",
 "l": "Share specifications, quantities, delivery location and deadline. We …",
 "d": "Share specifications, quantities, delivery location and deadline. We source comparative quotations and advise on next steps.",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 55
+"n": 54
 },
-"b55": {
+"b54": {
 "t": "Link / button",
 "l": "Request a quotation",
 "d": "Request a quotation",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 56
+"n": 55
 },
-"b56": {
+"b55": {
 "t": "Label",
 "l": "How it works",
 "d": "How it works",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 57
+"n": 56
 },
-"b57": {
+"b56": {
 "t": "Heading",
 "l": "From requirement to documented delivery",
 "d": "From requirement to documented delivery",
 "s": "Everything from sourcing to delivery documentat…",
-"n": 58
+"n": 57
 },
-"b58": {
+"b57": {
 "t": "Subheading",
 "l": "Brief",
 "d": "Brief",
 "s": "From requirement to documented delivery",
-"n": 59
+"n": 58
 },
-"b59": {
+"b58": {
 "t": "Paragraph",
 "l": "Submit the tender reference, specifications, quantities, delivery loc…",
 "d": "Submit the tender reference, specifications, quantities, delivery location and deadline.",
 "s": "From requirement to documented delivery",
-"n": 60
+"n": 59
 },
-"b60": {
+"b59": {
 "t": "Subheading",
 "l": "Source",
 "d": "Source",
 "s": "From requirement to documented delivery",
-"n": 61
+"n": 60
 },
-"b61": {
+"b60": {
 "t": "Paragraph",
 "l": "Identify suppliers and compare quotations on price, specification and…",
 "d": "Identify suppliers and compare quotations on price, specification and delivery terms.",
 "s": "From requirement to documented delivery",
-"n": 62
+"n": 61
 },
-"b62": {
+"b61": {
 "t": "Subheading",
 "l": "Approve",
 "d": "Approve",
 "s": "From requirement to documented delivery",
-"n": 63
+"n": 62
 },
-"b63": {
+"b62": {
 "t": "Paragraph",
 "l": "Internal bid approval and eligibility check — nothing is submitted au…",
 "d": "Internal bid approval and eligibility check — nothing is submitted automatically.",
 "s": "From requirement to documented delivery",
-"n": 64
+"n": 63
 },
-"b64": {
+"b63": {
 "t": "Subheading",
 "l": "Deliver",
 "d": "Deliver",
 "s": "From requirement to documented delivery",
-"n": 65
+"n": 64
 },
-"b65": {
+"b64": {
 "t": "Paragraph",
 "l": "Coordinate purchase orders, delivery schedules and inspection.",
 "d": "Coordinate purchase orders, delivery schedules and inspection.",
 "s": "From requirement to documented delivery",
-"n": 66
+"n": 65
 },
-"b66": {
+"b65": {
 "t": "Subheading",
 "l": "Report",
 "d": "Report",
 "s": "From requirement to documented delivery",
-"n": 67
+"n": 66
 },
-"b67": {
+"b66": {
 "t": "Paragraph",
 "l": "Delivery notes, invoices and contract completion reporting.",
 "d": "Delivery notes, invoices and contract completion reporting.",
 "s": "From requirement to documented delivery",
-"n": 68
+"n": 67
 },
-"b68": {
+"b67": {
 "t": "Label",
 "l": "Start the conversation",
 "d": "Start the conversation",
 "s": "From requirement to documented delivery",
-"n": 69
+"n": 68
 },
-"b69": {
+"b68": {
 "t": "Heading",
 "l": "Have a property, project, land, farm, or supply requirement?",
 "d": "Have a property, project, land, farm, or supply requirement?",
 "s": "From requirement to documented delivery",
-"n": 70
+"n": 69
 },
-"b70": {
+"b69": {
 "t": "Paragraph",
 "l": "Let us understand your needs and help you identify the right service …",
 "d": "Let us understand your needs and help you identify the right service arrangement.",
+"s": "Have a property, project, land, farm, or supply…",
+"n": 70
+},
+"b70": {
+"t": "Link / button",
+"l": "Submit a Project Brief →",
+"d": "Submit a Project Brief →",
 "s": "Have a property, project, land, farm, or supply…",
 "n": 71
 },
 "b71": {
 "t": "Link / button",
-"l": "Submit a Project Brief →",
-"d": "Submit a Project Brief →",
+"l": "Request a Consultation",
+"d": "Request a Consultation",
 "s": "Have a property, project, land, farm, or supply…",
 "n": 72
 },
 "b72": {
 "t": "Link / button",
-"l": "Request a Consultation",
-"d": "Request a Consultation",
-"s": "Have a property, project, land, farm, or supply…",
-"n": 73
-},
-"b73": {
-"t": "Link / button",
 "l": "WhatsApp Our Team",
 "d": "WhatsApp Our Team",
 "s": "Have a property, project, land, farm, or supply…",
-"n": 74
+"n": 73
 }
 },
 "projects": {
@@ -4611,249 +4534,228 @@
 "n": 8
 },
 "b8": {
-"t": "Subheading",
-"l": "Our first portfolio entries are being prepared.",
-"d": "Our first portfolio entries are being prepared.",
-"s": "Genuine, documented examples — published with p…",
-"n": 9
-},
-"b9": {
-"t": "Paragraph",
-"l": "Each entry will show the title, category, general location, status, s…",
-"d": "Each entry will show the title, category, general location, status, scope, approved photographs, timeline and documented results — and is approved before publication. Confidential budgets, sensitive site coordinates and client documents are never published without authorisation.",
-"s": "Genuine, documented examples — published with p…",
-"n": 10
-},
-"b10": {
-"t": "Link / button",
-"l": "Discuss your project →",
-"d": "Discuss your project →",
-"s": "Genuine, documented examples — published with p…",
-"n": 11
-},
-"b11": {
 "t": "Label",
 "l": "Project categories",
 "d": "Project categories",
 "s": "Genuine, documented examples — published with p…",
-"n": 12
+"n": 9
 },
-"b12": {
+"b9": {
 "t": "Heading",
 "l": "What our portfolio will cover.",
 "d": "What our portfolio will cover.",
 "s": "Genuine, documented examples — published with p…",
+"n": 10
+},
+"b10": {
+"t": "Subheading",
+"l": "Property management assignments",
+"d": "Property management assignments",
+"s": "What our portfolio will cover.",
+"n": 11
+},
+"b11": {
+"t": "Subheading",
+"l": "Construction and renovation",
+"d": "Construction and renovation",
+"s": "What our portfolio will cover.",
+"n": 12
+},
+"b12": {
+"t": "Subheading",
+"l": "Site supervision",
+"d": "Site supervision",
+"s": "What our portfolio will cover.",
 "n": 13
 },
 "b13": {
 "t": "Subheading",
-"l": "Property management assignments",
-"d": "Property management assignments",
+"l": "Land verification and brokerage",
+"d": "Land verification and brokerage",
 "s": "What our portfolio will cover.",
 "n": 14
 },
 "b14": {
 "t": "Subheading",
-"l": "Construction and renovation",
-"d": "Construction and renovation",
+"l": "Farm management",
+"d": "Farm management",
 "s": "What our portfolio will cover.",
 "n": 15
 },
 "b15": {
 "t": "Subheading",
-"l": "Site supervision",
-"d": "Site supervision",
+"l": "General supplies and procurement",
+"d": "General supplies and procurement",
 "s": "What our portfolio will cover.",
 "n": 16
 },
 "b16": {
-"t": "Subheading",
-"l": "Land verification and brokerage",
-"d": "Land verification and brokerage",
-"s": "What our portfolio will cover.",
-"n": 17
-},
-"b17": {
-"t": "Subheading",
-"l": "Farm management",
-"d": "Farm management",
-"s": "What our portfolio will cover.",
-"n": 18
-},
-"b18": {
-"t": "Subheading",
-"l": "General supplies and procurement",
-"d": "General supplies and procurement",
-"s": "What our portfolio will cover.",
-"n": 19
-},
-"b19": {
 "t": "Label",
 "l": "Anatomy of a project page",
 "d": "Anatomy of a project page",
 "s": "What our portfolio will cover.",
-"n": 20
+"n": 17
 },
-"b20": {
+"b17": {
 "t": "Heading",
 "l": "Every entry is evidence-led.",
 "d": "Every entry is evidence-led.",
 "s": "What our portfolio will cover.",
+"n": 18
+},
+"b18": {
+"t": "Table cell",
+"l": "Project overview",
+"d": "Project overview",
+"s": "Every entry is evidence-led.",
+"n": 19
+},
+"b19": {
+"t": "Table cell",
+"l": "Title, reference, category, and summary",
+"d": "Title, reference, category, and summary",
+"s": "Every entry is evidence-led.",
+"n": 20
+},
+"b20": {
+"t": "Table cell",
+"l": "Client context",
+"d": "Client context",
+"s": "Every entry is evidence-led.",
 "n": 21
 },
 "b21": {
 "t": "Table cell",
-"l": "Project overview",
-"d": "Project overview",
+"l": "Client requirement, with permission to disclose",
+"d": "Client requirement, with permission to disclose",
 "s": "Every entry is evidence-led.",
 "n": 22
 },
 "b22": {
 "t": "Table cell",
-"l": "Title, reference, category, and summary",
-"d": "Title, reference, category, and summary",
+"l": "Scope of work",
+"d": "Scope of work",
 "s": "Every entry is evidence-led.",
 "n": 23
 },
 "b23": {
 "t": "Table cell",
-"l": "Client context",
-"d": "Client context",
+"l": "Agreed services and responsibilities",
+"d": "Agreed services and responsibilities",
 "s": "Every entry is evidence-led.",
 "n": 24
 },
 "b24": {
 "t": "Table cell",
-"l": "Client requirement, with permission to disclose",
-"d": "Client requirement, with permission to disclose",
+"l": "Timeline",
+"d": "Timeline",
 "s": "Every entry is evidence-led.",
 "n": 25
 },
 "b25": {
 "t": "Table cell",
-"l": "Scope of work",
-"d": "Scope of work",
+"l": "Start date, target completion, completion date",
+"d": "Start date, target completion, completion date",
 "s": "Every entry is evidence-led.",
 "n": 26
 },
 "b26": {
 "t": "Table cell",
-"l": "Agreed services and responsibilities",
-"d": "Agreed services and responsibilities",
+"l": "Execution",
+"d": "Execution",
 "s": "Every entry is evidence-led.",
 "n": 27
 },
 "b27": {
 "t": "Table cell",
-"l": "Timeline",
-"d": "Timeline",
+"l": "Activities performed and milestones",
+"d": "Activities performed and milestones",
 "s": "Every entry is evidence-led.",
 "n": 28
 },
 "b28": {
 "t": "Table cell",
-"l": "Start date, target completion, completion date",
-"d": "Start date, target completion, completion date",
+"l": "Evidence",
+"d": "Evidence",
 "s": "Every entry is evidence-led.",
 "n": 29
 },
 "b29": {
 "t": "Table cell",
-"l": "Execution",
-"d": "Execution",
+"l": "Approved photographs, reports, and records",
+"d": "Approved photographs, reports, and records",
 "s": "Every entry is evidence-led.",
 "n": 30
 },
 "b30": {
 "t": "Table cell",
-"l": "Activities performed and milestones",
-"d": "Activities performed and milestones",
+"l": "Outcomes",
+"d": "Outcomes",
 "s": "Every entry is evidence-led.",
 "n": 31
 },
 "b31": {
 "t": "Table cell",
-"l": "Evidence",
-"d": "Evidence",
+"l": "Verified deliverables and measurable results where available",
+"d": "Verified deliverables and measurable results where available",
 "s": "Every entry is evidence-led.",
 "n": 32
 },
 "b32": {
 "t": "Table cell",
-"l": "Approved photographs, reports, and records",
-"d": "Approved photographs, reports, and records",
+"l": "Lessons",
+"d": "Lessons",
 "s": "Every entry is evidence-led.",
 "n": 33
 },
 "b33": {
 "t": "Table cell",
-"l": "Outcomes",
-"d": "Outcomes",
+"l": "Relevant observations and improvements",
+"d": "Relevant observations and improvements",
 "s": "Every entry is evidence-led.",
 "n": 34
 },
 "b34": {
-"t": "Table cell",
-"l": "Verified deliverables and measurable results where available",
-"d": "Verified deliverables and measurable results where available",
-"s": "Every entry is evidence-led.",
-"n": 35
-},
-"b35": {
-"t": "Table cell",
-"l": "Lessons",
-"d": "Lessons",
-"s": "Every entry is evidence-led.",
-"n": 36
-},
-"b36": {
-"t": "Table cell",
-"l": "Relevant observations and improvements",
-"d": "Relevant observations and improvements",
-"s": "Every entry is evidence-led.",
-"n": 37
-},
-"b37": {
 "t": "Label",
 "l": "Start the conversation",
 "d": "Start the conversation",
 "s": "Every entry is evidence-led.",
-"n": 38
+"n": 35
 },
-"b38": {
+"b35": {
 "t": "Heading",
 "l": "Planning something similar?",
 "d": "Planning something similar?",
 "s": "Every entry is evidence-led.",
-"n": 39
+"n": 36
 },
-"b39": {
+"b36": {
 "t": "Paragraph",
 "l": "Tell us about your requirement and we will advise on the right servic…",
 "d": "Tell us about your requirement and we will advise on the right service arrangement.",
 "s": "Planning something similar?",
-"n": 40
+"n": 37
 },
-"b40": {
+"b37": {
 "t": "Link / button",
 "l": "Submit a Project Brief →",
 "d": "Submit a Project Brief →",
 "s": "Planning something similar?",
-"n": 41
+"n": 38
 },
-"b41": {
+"b38": {
 "t": "Link / button",
 "l": "Request a Consultation",
 "d": "Request a Consultation",
 "s": "Planning something similar?",
-"n": 42
+"n": 39
 },
-"b42": {
+"b39": {
 "t": "Link / button",
 "l": "WhatsApp Our Team",
 "d": "WhatsApp Our Team",
 "s": "Planning something similar?",
-"n": 43
+"n": 40
 }
 },
 "properties": {
@@ -4914,193 +4816,172 @@
 "n": 7
 },
 "b7": {
-"t": "Subheading",
-"l": "Verified listings are published after review.",
-"d": "Verified listings are published after review.",
-"s": "Find property opportunities with better informa…",
-"n": 8
-},
-"b8": {
-"t": "Paragraph",
-"l": "Listings remain unpublished until an authorised staff member confirms…",
-"d": "Listings remain unpublished until an authorised staff member confirms the right to market the property. Check back soon, or tell us what you're looking for and we'll search on your behalf.",
-"s": "Find property opportunities with better informa…",
-"n": 9
-},
-"b9": {
-"t": "Link / button",
-"l": "Tell us what you need →",
-"d": "Tell us what you need →",
-"s": "Find property opportunities with better informa…",
-"n": 10
-},
-"b10": {
 "t": "Label",
 "l": "Listing standard",
 "d": "Listing standard",
 "s": "Find property opportunities with better informa…",
-"n": 11
+"n": 8
 },
-"b11": {
+"b8": {
 "t": "Heading",
 "l": "What every listing shows.",
 "d": "What every listing shows.",
 "s": "Find property opportunities with better informa…",
+"n": 9
+},
+"b9": {
+"t": "List item",
+"l": "Unique listing reference and general location",
+"d": "Unique listing reference and general location",
+"s": "What every listing shows.",
+"n": 10
+},
+"b10": {
+"t": "List item",
+"l": "Land size and measurement unit; asking price if authorised",
+"d": "Land size and measurement unit; asking price if authorised",
+"s": "What every listing shows.",
+"n": 11
+},
+"b11": {
+"t": "List item",
+"l": "Intended or stated land use, access and utilities",
+"d": "Intended or stated land use, access and utilities",
+"s": "What every listing shows.",
 "n": 12
 },
 "b12": {
 "t": "List item",
-"l": "Unique listing reference and general location",
-"d": "Unique listing reference and general location",
+"l": "Photographs and available document status",
+"d": "Photographs and available document status",
 "s": "What every listing shows.",
 "n": 13
 },
 "b13": {
 "t": "List item",
-"l": "Land size and measurement unit; asking price if authorised",
-"d": "Land size and measurement unit; asking price if authorised",
+"l": "Verification status and date",
+"d": "Verification status and date",
 "s": "What every listing shows.",
 "n": 14
 },
 "b14": {
 "t": "List item",
-"l": "Intended or stated land use, access and utilities",
-"d": "Intended or stated land use, access and utilities",
+"l": "Viewing request form and enquiry button",
+"d": "Viewing request form and enquiry button",
 "s": "What every listing shows.",
 "n": 15
 },
 "b15": {
-"t": "List item",
-"l": "Photographs and available document status",
-"d": "Photographs and available document status",
+"t": "Label",
+"l": "Illustrative listing format",
+"d": "Illustrative listing format",
 "s": "What every listing shows.",
 "n": 16
 },
 "b16": {
-"t": "List item",
-"l": "Verification status and date",
-"d": "Verification status and date",
+"t": "Label",
+"l": "Checks Completed Within Scope",
+"d": "Checks Completed Within Scope",
 "s": "What every listing shows.",
 "n": 17
 },
 "b17": {
-"t": "List item",
-"l": "Viewing request form and enquiry button",
-"d": "Viewing request form and enquiry button",
+"t": "Subheading",
+"l": "Sample listing · CAM-L-0000",
+"d": "Sample listing · CAM-L-0000",
 "s": "What every listing shows.",
 "n": 18
 },
 "b18": {
 "t": "Label",
-"l": "Illustrative listing format",
-"d": "Illustrative listing format",
+"l": "Location",
+"d": "Location",
 "s": "What every listing shows.",
 "n": 19
 },
 "b19": {
-"t": "Label",
-"l": "Checks Completed Within Scope",
-"d": "Checks Completed Within Scope",
-"s": "What every listing shows.",
-"n": 20
-},
-"b20": {
-"t": "Subheading",
-"l": "Sample listing · CAM-L-0000",
-"d": "Sample listing · CAM-L-0000",
-"s": "What every listing shows.",
-"n": 21
-},
-"b21": {
-"t": "Label",
-"l": "Location",
-"d": "Location",
-"s": "What every listing shows.",
-"n": 22
-},
-"b22": {
 "t": "Value",
 "l": "District, Uganda",
 "d": "District, Uganda",
 "s": "What every listing shows.",
-"n": 23
+"n": 20
 },
-"b23": {
+"b20": {
 "t": "Label",
 "l": "Size",
 "d": "Size",
 "s": "What every listing shows.",
-"n": 24
+"n": 21
 },
-"b24": {
+"b21": {
 "t": "Value",
 "l": "— acres",
 "d": "— acres",
 "s": "What every listing shows.",
-"n": 25
+"n": 22
 },
-"b25": {
+"b22": {
 "t": "Label",
 "l": "Use",
 "d": "Use",
 "s": "What every listing shows.",
-"n": 26
+"n": 23
 },
-"b26": {
+"b23": {
 "t": "Value",
 "l": "Residential",
 "d": "Residential",
+"s": "What every listing shows.",
+"n": 24
+},
+"b24": {
+"t": "Label",
+"l": "Verified",
+"d": "Verified",
+"s": "What every listing shows.",
+"n": 25
+},
+"b25": {
+"t": "Value",
+"l": "Date shown here",
+"d": "Date shown here",
+"s": "What every listing shows.",
+"n": 26
+},
+"b26": {
+"t": "Link / button",
+"l": "Request a viewing",
+"d": "Request a viewing",
 "s": "What every listing shows.",
 "n": 27
 },
 "b27": {
 "t": "Label",
-"l": "Verified",
-"d": "Verified",
+"l": "Listing submission",
+"d": "Listing submission",
 "s": "What every listing shows.",
 "n": 28
 },
 "b28": {
-"t": "Value",
-"l": "Date shown here",
-"d": "Date shown here",
-"s": "What every listing shows.",
-"n": 29
-},
-"b29": {
-"t": "Link / button",
-"l": "Request a viewing",
-"d": "Request a viewing",
-"s": "What every listing shows.",
-"n": 30
-},
-"b30": {
-"t": "Label",
-"l": "Listing submission",
-"d": "Listing submission",
-"s": "What every listing shows.",
-"n": 31
-},
-"b31": {
 "t": "Heading",
 "l": "List your property with us",
 "d": "List your property with us",
 "s": "What every listing shows.",
-"n": 32
+"n": 29
 },
-"b32": {
+"b29": {
 "t": "Paragraph",
 "l": "Owners or authorised representatives can submit a property. It remain…",
 "d": "Owners or authorised representatives can submit a property. It remains unpublished until reviewed.",
 "s": "List your property with us",
-"n": 33
+"n": 30
 },
-"b33": {
+"b30": {
 "t": "Button",
 "l": "Submit listing",
 "d": "Submit listing",
 "s": "List your property with us",
-"n": 34
+"n": 31
 }
 },
 "partners": {
@@ -5499,186 +5380,46 @@
 "n": 21
 },
 "b21": {
-"t": "Question",
-"l": "Can you manage my property if I live abroad?",
-"d": "Can you manage my property if I live abroad?",
-"s": "Frequently asked questions",
-"n": 22
-},
-"b22": {
-"t": "Paragraph",
-"l": "Yes. Services can be arranged for owners who live abroad or outside t…",
-"d": "Yes. Services can be arranged for owners who live abroad or outside the property's location, subject to an agreed management scope, access to necessary information, and the appropriate authorisations.",
-"s": "Frequently asked questions",
-"n": 23
-},
-"b23": {
-"t": "Question",
-"l": "Can I hire you only to supervise construction?",
-"d": "Can I hire you only to supervise construction?",
-"s": "Frequently asked questions",
-"n": 24
-},
-"b24": {
-"t": "Paragraph",
-"l": "Yes. Construction supervision can be provided as a standalone service…",
-"d": "Yes. Construction supervision can be provided as a standalone service with agreed site visits, reporting frequency, responsibilities, and limitations.",
-"s": "Frequently asked questions",
-"n": 25
-},
-"b25": {
-"t": "Question",
-"l": "Can you help me verify land before purchase?",
-"d": "Can you help me verify land before purchase?",
-"s": "Frequently asked questions",
-"n": 26
-},
-"b26": {
-"t": "Paragraph",
-"l": "Clapet can coordinate relevant document reviews, official searches, s…",
-"d": "Clapet can coordinate relevant document reviews, official searches, site inspections, and specialist engagements according to the agreed scope. No verification process should be represented as guaranteeing a risk-free transaction.",
-"s": "Frequently asked questions",
-"n": 27
-},
-"b27": {
-"t": "Question",
-"l": "Do you undertake construction contracts?",
-"d": "Do you undertake construction contracts?",
-"s": "Frequently asked questions",
-"n": 28
-},
-"b28": {
-"t": "Paragraph",
-"l": "The company can consider construction assignments within its verified…",
-"d": "The company can consider construction assignments within its verified capacity, professional requirements, and contractual scope.",
-"s": "Frequently asked questions",
-"n": 29
-},
-"b29": {
-"t": "Question",
-"l": "Can you manage agricultural land on my behalf?",
-"d": "Can you manage agricultural land on my behalf?",
-"s": "Frequently asked questions",
-"n": 30
-},
-"b30": {
-"t": "Paragraph",
-"l": "Yes. Farm management services can be structured around the land, acti…",
-"d": "Yes. Farm management services can be structured around the land, activities, budget, reporting needs, and objectives of the client.",
-"s": "Frequently asked questions",
-"n": 31
-},
-"b31": {
-"t": "Question",
-"l": "Do you supply goods to institutions and NGOs?",
-"d": "Do you supply goods to institutions and NGOs?",
-"s": "Frequently asked questions",
-"n": 32
-},
-"b32": {
-"t": "Paragraph",
-"l": "Clapet can respond to suitable supply requirements and procurement op…",
-"d": "Clapet can respond to suitable supply requirements and procurement opportunities within its capacity and the applicable eligibility conditions.",
-"s": "Frequently asked questions",
-"n": 33
-},
-"b33": {
-"t": "Question",
-"l": "How do I request a quotation?",
-"d": "How do I request a quotation?",
-"s": "Frequently asked questions",
-"n": 34
-},
-"b34": {
-"t": "Paragraph",
-"l": "Submit a project brief describing the service required, location, sco…",
-"d": "Submit a project brief describing the service required, location, scope, timeline, and available budget information. The team can assess the enquiry and advise on next steps.",
-"s": "Frequently asked questions",
-"n": 35
-},
-"b35": {
-"t": "Question",
-"l": "Can I monitor my project online?",
-"d": "Can I monitor my project online?",
-"s": "Frequently asked questions",
-"n": 36
-},
-"b36": {
-"t": "Paragraph",
-"l": "Where the client portal service is available and included in the enga…",
-"d": "Where the client portal service is available and included in the engagement, authorised clients can view reports, project milestones, documents, and service requests.",
-"s": "Frequently asked questions",
-"n": 37
-},
-"b37": {
-"t": "Question",
-"l": "How are maintenance costs approved?",
-"d": "How are maintenance costs approved?",
-"s": "Frequently asked questions",
-"n": 38
-},
-"b38": {
-"t": "Paragraph",
-"l": "The owner and Clapet should agree on approval limits and procedures b…",
-"d": "The owner and Clapet should agree on approval limits and procedures before work begins. The portal can record quotations, approvals, invoices, and completion evidence.",
-"s": "Frequently asked questions",
-"n": 39
-},
-"b39": {
-"t": "Question",
-"l": "How can I become a supplier or contractor?",
-"d": "How can I become a supplier or contractor?",
-"s": "Frequently asked questions",
-"n": 40
-},
-"b40": {
-"t": "Paragraph",
-"l": "Submit the partner registration form with relevant company details, s…",
-"d": "Submit the partner registration form with relevant company details, service categories, experience, and supporting documents. Registration is subject to review.",
-"s": "Frequently asked questions",
-"n": 41
-},
-"b41": {
 "t": "Label",
 "l": "Start the conversation",
 "d": "Start the conversation",
 "s": "Frequently asked questions",
-"n": 42
+"n": 22
 },
-"b42": {
+"b22": {
 "t": "Heading",
 "l": "Can't find your answer?",
 "d": "Can't find your answer?",
 "s": "Frequently asked questions",
-"n": 43
+"n": 23
 },
-"b43": {
+"b23": {
 "t": "Paragraph",
 "l": "Our team is happy to talk through your requirement.",
 "d": "Our team is happy to talk through your requirement.",
 "s": "Can't find your answer?",
-"n": 44
+"n": 24
 },
-"b44": {
+"b24": {
 "t": "Link / button",
 "l": "Submit a Project Brief →",
 "d": "Submit a Project Brief →",
 "s": "Can't find your answer?",
-"n": 45
+"n": 25
 },
-"b45": {
+"b25": {
 "t": "Link / button",
 "l": "Request a Consultation",
 "d": "Request a Consultation",
 "s": "Can't find your answer?",
-"n": 46
+"n": 26
 },
-"b46": {
+"b26": {
 "t": "Link / button",
 "l": "WhatsApp Our Team",
 "d": "WhatsApp Our Team",
 "s": "Can't find your answer?",
-"n": 47
+"n": 27
 }
 },
 "contact": {
@@ -6772,6 +6513,13 @@
 "d": "Disclaimers",
 "s": "Menu & footer",
 "n": 42
+},
+"g44": {
+"t": "Link / button",
+"l": "Admin login",
+"d": "Admin login",
+"s": "Menu & footer",
+"n": 43
 }
 }
 }

@@ -3,3 +3,13 @@ storage/uploads/*
 storage/rl_*.json
 storage/admin.json
 storage/login_*.json
+storage/.salt
+storage/analytics.sqlite*
+storage/settings.json
+storage/content.json
+storage/notifications.log
+storage/collections/*.json
+assets/img/uploads/*
+!assets/img/uploads/.htaccess
+__pycache__/
+*.pyc

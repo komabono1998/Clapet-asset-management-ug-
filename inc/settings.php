@@ -1,6 +1,8 @@
 <?php
 /** Site settings: defaults merged with storage/settings.json (edited in /admin). */
 declare(strict_types=1);
+@ini_set('display_errors', '0');   // never show PHP errors to visitors; they go to the server log
+@ini_set('log_errors', '1');
 
 function h(?string $v): string { return htmlspecialchars((string)$v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
 
@@ -12,6 +14,7 @@ function site_defaults(): array {
         'wa'      => '256751299076',
         'hours'   => 'Mon – Fri · 8:00 – 17:00 (EAT)',
         'md'      => 'Okuna Mathew Elvis',
+        'notify'  => true,
         // Shown in the home-page ticker only when "verified" is true.
         'credentials' => [
             ['label' => 'URSB Registered',                   'verified' => false],
@@ -74,4 +77,16 @@ function t(string $page, string $id): string {
     return $ov[$page][$id] ?? ($map[$page][$id]['d'] ?? '');
 }
 
+require_once __DIR__ . '/collections.php';
+function sel(string $k, string $v): string { return (($_GET[$k] ?? '') === $v) ? ' selected' : ''; }
+
 $S = site_settings();
+
+/* Visitor analytics: public pages only (files in the site root, not submit/track). */
+if (PHP_SAPI !== 'cli' && isset($_SERVER['SCRIPT_FILENAME']) && realpath(dirname($_SERVER['SCRIPT_FILENAME'])) === realpath(dirname(__DIR__))) {
+    $__sn = basename($_SERVER['SCRIPT_FILENAME'], '.php');
+    if (!in_array($__sn, ['submit', 'track'], true)) {
+        require_once __DIR__ . '/analytics.php';
+        track_view($__sn);
+    }
+}

@@ -139,4 +139,20 @@
         .catch(function(){m.className='form-msg err';m.textContent='The submission service is unavailable. Please contact us on WhatsApp or by email.';b.disabled=false});
     });
   });
+
+  /* privacy-friendly analytics: time on page + key clicks (no cookies) */
+  (function(){
+    if(!navigator.sendBeacon||navigator.doNotTrack==='1')return;
+    var page=(location.pathname.split('/').pop()||'index').replace(/\.(php|html)$/,'')||'index',t0=Date.now(),vis=0,last=Date.now(),sent=false;
+    function send(o){try{var f=new FormData();for(var k in o)f.append(k,o[k]);f.append('p',page);navigator.sendBeacon('track.php',f)}catch(e){}}
+    document.addEventListener('visibilitychange',function(){if(document.hidden){vis+=Date.now()-last;if(!sent&&vis>1000){sent=true;send({t:'dwell',ms:vis})}}else{last=Date.now();sent=false}});
+    window.addEventListener('pagehide',function(){vis+=Date.now()-last;if(!sent&&vis>1000){sent=true;send({t:'dwell',ms:vis})}});
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'',l='';
+      if(h.indexOf('wa.me')>-1)l='WhatsApp';else if(h.indexOf('tel:')===0)l='Call';else if(h.indexOf('mailto:')===0)l='Email';
+      else if(/contact\.(php|html)#brief/.test(h))l='Submit a brief';else if(/contact\.(php|html)#consultation/.test(h))l='Consultation';
+      else if(/portal\.(php|html)/.test(h))l='Client portal';
+      if(l)send({t:'click',l:l});
+    });
+  })();
 })();

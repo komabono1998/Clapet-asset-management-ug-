@@ -52,16 +52,32 @@ $allowed = ['pdf' => 'application/pdf', 'jpg' => 'image/jpeg', 'jpeg' => 'image/
             'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
 $ref  = 'CAM-' . date('Y') . '-' . strtoupper(bin2hex(random_bytes(3)));
 $files = [];
+$dir = "$root/uploads/$ref";
+$fail = static function (string $msg) use ($dir): never {
+    foreach (glob("$dir/*") ?: [] as $f) @unlink($f);
+    @rmdir($dir);
+    out(['ok' => false, 'error' => $msg], 422);
+};
 if (!empty($_FILES['attachments']['name'][0])) {
+    $finfo = function_exists('finfo_open') ? finfo_open(FILEINFO_MIME_TYPE) : false;
     $n = min(count($_FILES['attachments']['name']), 5);
-    @mkdir("$root/uploads/$ref", 0750, true);
     for ($i = 0; $i < $n; $i++) {
-        if ($_FILES['attachments']['error'][$i] !== UPLOAD_ERR_OK) continue;
-        if ($_FILES['attachments']['size'][$i] > 5 * 1024 * 1024) out(['ok' => false, 'error' => 'Each file must be 5 MB or smaller.'], 422);
+        $err = $_FILES['attachments']['error'][$i];
+        if ($err === UPLOAD_ERR_NO_FILE) continue;
+        if ($err === UPLOAD_ERR_INI_SIZE || $err === UPLOAD_ERR_FORM_SIZE) $fail('Each file must be 5 MB or smaller.');
+        if ($err !== UPLOAD_ERR_OK) $fail('A file could not be uploaded. Please try again.');
+        if ($_FILES['attachments']['size'][$i] > 5 * 1024 * 1024) $fail('Each file must be 5 MB or smaller.');
         $ext = strtolower(pathinfo($_FILES['attachments']['name'][$i], PATHINFO_EXTENSION));
-        if (!isset($allowed[$ext])) out(['ok' => false, 'error' => 'Allowed file types: PDF, JPG, PNG, DOCX, XLSX.'], 422);
+        if (!isset($allowed[$ext])) $fail('Allowed file types: PDF, JPG, PNG, DOCX, XLSX.');
+        if ($finfo) {
+            $mime = (string)finfo_file($finfo, $_FILES['attachments']['tmp_name'][$i]);
+            $okMime = $mime === $allowed[$ext] || ($ext === 'jpeg' && $mime === 'image/jpeg')
+                || (in_array($ext, ['docx', 'xlsx'], true) && in_array($mime, ['application/zip', 'application/octet-stream', 'application/x-zip-compressed'], true));
+            if (!$okMime) $fail('One of the files does not match its file type.');
+        }
+        @mkdir($dir, 0750, true);
         $stored = bin2hex(random_bytes(8)) . '.' . $ext;
-        if (move_uploaded_file($_FILES['attachments']['tmp_name'][$i], "$root/uploads/$ref/$stored")) {
+        if (move_uploaded_file($_FILES['attachments']['tmp_name'][$i], "$dir/$stored")) {
             $files[] = ['original' => $clean($_FILES['attachments']['name'][$i], 120), 'stored' => $stored];
         }
     }
@@ -75,7 +91,19 @@ if (file_put_contents("$root/enquiries/$ref.json", json_encode($record, JSON_PRE
 $hits[] = time();
 file_put_contents($rl, json_encode($hits));
 
-// Optional staff notification (configure mail on the production host).
-@mail($S['email'], "New enquiry $ref ($service)", "A new enquiry $ref was received. Review it in the admin dashboard.", 'From: no-reply@clapetassetmanagement.com');
+require_once __DIR__ . '/inc/analytics.php';
+track_event('form_submit', $service, 'form');
 
-out(['ok' => true, 'reference' => $ref]);
+// Answer the visitor first, then notify staff, so a slow or missing mail server never delays the form.
+$payload = json_encode(['ok' => true, 'reference' => $ref]);
+http_response_code(200);
+header('Content-Length: ' . strlen($payload));
+header('Connection: close');
+echo $payload;
+if (function_exists('fastcgi_finish_request')) { fastcgi_finish_request(); } else { while (ob_get_level() > 0) { @ob_end_flush(); } @flush(); }
+ignore_user_abort(true);
+@file_put_contents("$root/notifications.log", date('c') . " $ref $service $email\n", FILE_APPEND | LOCK_EX);
+if (($S['notify'] ?? true) && filter_var($S['email'] ?? '', FILTER_VALIDATE_EMAIL)) {
+    @mail($S['email'], "New enquiry $ref ($service)", "A new enquiry $ref was received from $name. Review it in the admin dashboard.", 'From: no-reply@' . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'localhost'));
+}
+exit;

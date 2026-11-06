@@ -1,0 +1,4 @@
+<?php defined('CLAPET_ADMIN') || exit; ?><form method="post" class="card" style="max-width:520px"><input type="hidden" name="csrf" value="<?= h($csrf) ?>"><input type="hidden" name="action" value="password"><h2>Change password</h2>
+<label>Current password<input type="password" name="old" required autocomplete="current-password"></label>
+<label>New password <small>(10+ characters)</small><input type="password" name="new" required minlength="10" autocomplete="new-password"></label><button class="btn gold">Update password</button></form>
+<div class="card" style="max-width:520px"><h2>Signed in as</h2><p style="margin:0"><?= h($admin['user'] ?? '') ?></p><p class="hint" style="margin:8px 0 0">To use a different email, run <code>php admin/setup.php &lt;email&gt; &lt;password&gt;</code> on the server.</p></div>

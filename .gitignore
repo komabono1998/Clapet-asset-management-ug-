@@ -13,3 +13,4 @@ assets/img/uploads/*
 !assets/img/uploads/.htaccess
 __pycache__/
 *.pyc
+storage/setup.key

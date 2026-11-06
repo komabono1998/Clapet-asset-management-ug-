@@ -179,7 +179,7 @@ if ($in && $action === 'coll_toggle' && isset($schemas[$cn])) {
 /* ------------------------------------------------------------------ shared view data */
 $S = site_settings();
 $page = (string)($_GET['p'] ?? 'dashboard');
-$views = ['dashboard', 'visitors', 'pages', 'content', 'coll', 'images', 'settings', 'enquiries', 'forms', 'account'];
+$views = ['dashboard', 'visitors', 'pages', 'content', 'coll', 'images', 'settings', 'enquiries', 'forms', 'system', 'account'];
 if (!in_array($page, $views, true)) $page = 'dashboard';
 $pg = (string)($_GET['pg'] ?? 'index');
 if (!isset($cmap[$pg])) $pg = 'index';
@@ -205,11 +205,11 @@ function page_cards(array $PAGES, array $cmap, array $ovAll): string {
 }
 
 $titles = ['dashboard' => 'Dashboard', 'visitors' => 'Visitor analytics', 'pages' => 'Website text', 'content' => 'Website text', 'coll' => $schemas[$cn]['label'] ?? 'Content',
-           'images' => 'Photos', 'settings' => 'Contact & credentials', 'enquiries' => 'Enquiries', 'forms' => 'Forms & downloads', 'account' => 'Account'];
+           'images' => 'Photos', 'settings' => 'Contact & credentials', 'enquiries' => 'Enquiries', 'forms' => 'Forms & downloads', 'system' => 'System check', 'account' => 'Account'];
 
 /* command-palette destinations */
 $jump = [['Dashboard', '?p=dashboard'], ['Visitor analytics', '?p=visitors'], ['Photos', '?p=images'], ['Contact & credentials', '?p=settings'],
-         ['Enquiries', '?p=enquiries'], ['Forms & downloads', '?p=forms'], ['Account & password', '?p=account']];
+         ['Enquiries', '?p=enquiries'], ['Forms & downloads', '?p=forms'], ['System check', '?p=system'], ['Account & password', '?p=account']];
 foreach ($PAGES as $k => $l) if (isset($cmap[$k])) $jump[] = ['Edit text: ' . $l, '?p=content&pg=' . $k];
 foreach ($schemas as $k => $sc) { $jump[] = [$sc['label'], '?p=coll&c=' . $k]; $jump[] = ['Add ' . $sc['single'], '?p=coll&c=' . $k . '&id=new']; }
 

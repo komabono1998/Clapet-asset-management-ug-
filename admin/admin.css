@@ -257,3 +257,8 @@ label.chk{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:4px 0 1
 
 .logo img.mark{width:38px;height:38px;border-radius:10px;flex:none;display:block}
 .auth-brand .logo img.mark{width:44px;height:44px}
+
+.sys{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.sys:last-child{border:0}
+.sys b{display:block;font-size:.9rem}.sys small{color:var(--muted);font-size:.8rem}
+.sys .si{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:800 .8rem var(--fh);flex:none;margin-top:2px}
+.sys.ok .si{background:#dff4e7;color:var(--ok)}.sys.warn .si{background:#fff3cd;color:#8a6d12}.sys.fail .si{background:#fde8e6;color:var(--bad)}

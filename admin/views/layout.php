@@ -53,6 +53,7 @@
 <?= nav_item('?p=forms', 'Forms & downloads', 'down', $page === 'forms') ?>
 <div class="grp-t">Settings</div>
 <?= nav_item('?p=settings', 'Contact & credentials', 'cog', $page === 'settings') ?>
+<?= nav_item('?p=system', 'System check', 'shield', $page === 'system') ?>
 <?= nav_item('?p=account', 'Account', 'user', $page === 'account') ?>
 </nav>
 <div class="foot"><a href="../index.php" target="_blank"><?= ico('eye') ?>View website</a>

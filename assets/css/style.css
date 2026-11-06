@@ -565,3 +565,7 @@ h1,h2,h3,h4,p,li{overflow-wrap:break-word}
 .site-header .brand{flex:none}
 .foot-brand .brand-logo{background:#fff;border-radius:14px;padding:10px 16px;height:68px}
 @media (max-width:560px){.brand-logo{height:40px}.foot-brand .brand-logo{height:56px}}
+
+/* footer credit */
+.foot-credit{margin:0;padding:0 0 26px;text-align:center;font-size:.8rem;color:#7d90ae}
+.foot-credit em{font-style:italic;letter-spacing:.02em}

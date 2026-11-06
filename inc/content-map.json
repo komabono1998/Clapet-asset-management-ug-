@@ -6520,6 +6520,13 @@
 "d": "Admin login",
 "s": "Menu & footer",
 "n": 43
+},
+"g45": {
+"t": "Paragraph",
+"l": "Designed and maintained by Santos Junior (BONO TECHNOLOGIES)",
+"d": "<em>Designed and maintained by Santos Junior (BONO TECHNOLOGIES)</em>",
+"s": "Menu & footer",
+"n": 44
 }
 }
 }

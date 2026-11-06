@@ -14,3 +14,4 @@ assets/img/uploads/*
 __pycache__/
 *.pyc
 storage/setup.key
+.env

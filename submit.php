@@ -21,7 +21,7 @@ $ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 $rl = $root . '/rl_' . md5($ip) . '.json';
 $hits = is_file($rl) ? (json_decode((string)file_get_contents($rl), true) ?: []) : [];
 $hits = array_values(array_filter($hits, fn($t) => $t > time() - 3600));
-if (count($hits) >= 8) out(['ok' => false, 'error' => 'Too many submissions. Please try again later.'], 429);
+if (count($hits) >= env_int('RATE_LIMIT_PER_HOUR', 8)) out(['ok' => false, 'error' => 'Too many submissions. Please try again later.'], 429);
 
 $clean = static fn(string $v, int $max = 2000): string => mb_substr(trim(strip_tags($v)), 0, $max);
 
@@ -66,7 +66,7 @@ if (!empty($_FILES['attachments']['name'][0])) {
         if ($err === UPLOAD_ERR_NO_FILE) continue;
         if ($err === UPLOAD_ERR_INI_SIZE || $err === UPLOAD_ERR_FORM_SIZE) $fail('Each file must be 5 MB or smaller.');
         if ($err !== UPLOAD_ERR_OK) $fail('A file could not be uploaded. Please try again.');
-        if ($_FILES['attachments']['size'][$i] > 5 * 1024 * 1024) $fail('Each file must be 5 MB or smaller.');
+        if ($_FILES['attachments']['size'][$i] > env_int('MAX_UPLOAD_MB', 5) * 1024 * 1024) $fail('Each file must be ' . env_int('MAX_UPLOAD_MB', 5) . ' MB or smaller.');
         $ext = strtolower(pathinfo($_FILES['attachments']['name'][$i], PATHINFO_EXTENSION));
         if (!isset($allowed[$ext])) $fail('Allowed file types: PDF, JPG, PNG, DOCX, XLSX.');
         if ($finfo) {
@@ -104,6 +104,6 @@ if (function_exists('fastcgi_finish_request')) { fastcgi_finish_request(); } els
 ignore_user_abort(true);
 @file_put_contents("$root/notifications.log", date('c') . " $ref $service $email\n", FILE_APPEND | LOCK_EX);
 if (($S['notify'] ?? true) && filter_var($S['email'] ?? '', FILTER_VALIDATE_EMAIL)) {
-    @mail($S['email'], "New enquiry $ref ($service)", "A new enquiry $ref was received from $name. Review it in the admin dashboard.", 'From: no-reply@' . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'localhost'));
+    @mail($S['email'], "New enquiry $ref ($service)", "A new enquiry $ref was received from $name. Review it in the admin dashboard.", 'From: ' . (env('MAIL_FROM') ?: 'no-reply@' . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'localhost')));
 }
 exit;

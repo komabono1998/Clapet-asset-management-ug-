@@ -1,20 +1,22 @@
 <?php
 /** Site settings: defaults merged with storage/settings.json (edited in /admin). */
 declare(strict_types=1);
-@ini_set('display_errors', '0');   // never show PHP errors to visitors; they go to the server log
+require_once __DIR__ . '/env.php';
+@date_default_timezone_set(env('APP_TIMEZONE', 'Africa/Kampala') ?? 'Africa/Kampala');
+@ini_set('display_errors', env('APP_ENV', 'production') === 'local' && env_bool('APP_DEBUG', false) ? '1' : '0');   // errors never reach visitors in production; they go to the server log
 @ini_set('log_errors', '1');
 
 function h(?string $v): string { return htmlspecialchars((string)$v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
 
 function site_defaults(): array {
     return [
-        'phone'   => '+256 785 274 288',
-        'email'   => 'Okunamatthew72@gmail.com',
-        'address' => 'Kampala, Uganda',
-        'wa'      => '256751299076',
-        'hours'   => 'Mon – Fri · 8:00 – 17:00 (EAT)',
-        'md'      => 'Okuna Mathew Elvis',
-        'notify'  => true,
+        'phone'   => env('CONTACT_PHONE', '+256 785 274 288'),
+        'email'   => env('CONTACT_EMAIL', 'Okunamatthew72@gmail.com'),
+        'address' => env('CONTACT_ADDRESS', 'Kampala, Uganda'),
+        'wa'      => env('CONTACT_WHATSAPP', '256751299076'),
+        'hours'   => env('CONTACT_HOURS', 'Mon – Fri · 8:00 – 17:00 (EAT)'),
+        'md'      => env('DIRECTOR_NAME', 'Okuna Mathew Elvis'),
+        'notify'  => env_bool('NOTIFY_EMAIL', true),
         // Shown in the home-page ticker only when "verified" is true.
         'credentials' => [
             ['label' => 'URSB Registered',                   'verified' => false],

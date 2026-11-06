@@ -1,5 +1,5 @@
 Options -Indexes
-<FilesMatch "^(build\.py|\.git.*)$">
+<FilesMatch "^(build\.py|\.git.*|\.env.*)$">
   Require all denied
 </FilesMatch>
 RedirectMatch 404 /\.(git|claude)

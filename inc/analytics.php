@@ -5,6 +5,7 @@
  * Data lives in storage/analytics.sqlite (denied over HTTP).
  */
 declare(strict_types=1);
+require_once __DIR__ . '/env.php';
 
 function adb(): ?PDO {
     static $pdo = false;
@@ -58,6 +59,7 @@ function track_source(string $host, string $self): string {
 
 /** Records one page view. Called automatically from inc/settings.php on public pages. */
 function track_view(string $page): void {
+    if (!env_bool('ANALYTICS_ENABLED', true)) return;
     if (PHP_SAPI === 'cli' || ($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET') return;
     if (($_SERVER['HTTP_DNT'] ?? '') === '1' || isset($_COOKIE['clapet_admin'])) return;
     $ua = $_SERVER['HTTP_USER_AGENT'] ?? '';

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 require __DIR__ . '/inc/analytics.php';
 http_response_code(204);
+if (!env_bool('ANALYTICS_ENABLED', true)) exit;
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') exit;
 if (($_SERVER['HTTP_DNT'] ?? '') === '1' || isset($_COOKIE['clapet_admin'])) exit;
 if (track_is_bot($_SERVER['HTTP_USER_AGENT'] ?? '')) exit;
